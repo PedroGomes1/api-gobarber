@@ -2,3 +2,5 @@ node_modules/
 comandos.txt
 tmp/*
 !tmp/.gitkeep
+.env
+ormgconfig.json
