@@ -1,14 +1,19 @@
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentRepository';
 import ListProviderAppointmentService from './ListProviderAppointmentService';
 
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 let listProviderAppointmentService: ListProviderAppointmentService;
+let fakeCacheProvider: FakeCacheProvider;
 
 describe('ListProviderAppointmentService', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
+    fakeCacheProvider = new FakeCacheProvider();
+
     listProviderAppointmentService = new ListProviderAppointmentService(
       fakeAppointmentsRepository,
+      fakeCacheProvider,
     );
   });
 
@@ -29,11 +34,9 @@ describe('ListProviderAppointmentService', () => {
       provider_id: 'provider',
       year: 2020,
       month: 5,
-      day: 2,
+      day: 20,
     });
 
-    expect(appointments).toEqual(
-      expect.arrayContaining([appointment1, appointment2]),
-    );
+    expect(appointments).toEqual([appointment1, appointment2]);
   });
 });
