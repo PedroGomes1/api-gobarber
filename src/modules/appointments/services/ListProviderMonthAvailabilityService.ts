@@ -32,12 +32,12 @@ class ListProviderMonthAvailabilityService {
         month,
       },
     );
-    const numbersOfDaysInMounth = getDaysInMonth(new Date(year, month - 1));
+    const numbersOfDaysInMonth = getDaysInMonth(new Date(year, month - 1));
 
     const eachDayArray = Array.from(
-      { length: numbersOfDaysInMounth },
+      { length: numbersOfDaysInMonth },
       (_, index) => index + 1,
-    ); // Serve para montar um array [1,2,3,4,5 .....], pois o numbersOfDaysInMounth vai retornar um número só com qnts dias total tem no mês
+    ); // Serve para montar um array [1,2,3,4,5 .....], pois o numbersOfDaysInMouth vai retornar um número só com qnts dias total tem no mês
 
     const availability = eachDayArray.map(day => {
       const appointmentsInDay = appointments.filter(appointment => {
