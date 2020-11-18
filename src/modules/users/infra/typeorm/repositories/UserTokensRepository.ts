@@ -5,7 +5,7 @@ import IUserTokensRepository from '@modules/users/repositories/IUserTokensReposi
 import UserToken from '../entities/UserToken';
 
 class UserTokensRepository implements IUserTokensRepository {
-  private ormRepository: Repository<UserToken>; // É um repositório do typeorm da entidade de appointment
+  private ormRepository: Repository<UserToken>;
 
   constructor() {
     this.ormRepository = getRepository(UserToken); // getRepository cria o repositorio, ali em cima eu simplesmente tipei
@@ -26,6 +26,7 @@ class UserTokensRepository implements IUserTokensRepository {
     });
 
     await this.ormRepository.save(userToken);
+
     return userToken;
   }
 }
